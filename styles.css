@@ -212,3 +212,39 @@ textarea {
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+/* Media Queries per dispositivi mobili */
+@media (max-width: 768px) {
+    .header-content h1 {
+        font-size: 2em; /* Riduci la dimensione del titolo su dispositivi mobili */
+    }
+
+    .header-content p {
+        font-size: 1.2em; /* Riduci la dimensione del sottotitolo su dispositivi mobili */
+    }
+
+    nav ul {
+        flex-direction: column; /* Disposizione verticale del menu di navigazione */
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0.5em 0;
+    }
+
+    section {
+        padding: 1em 0.5em; /* Riduci il padding delle sezioni su dispositivi mobili */
+    }
+
+    .services ul {
+        grid-template-columns: 1fr; /* Una colonna su dispositivi mobili */
+    }
+
+    form {
+        padding: 0 1em; /* Aggiungi padding laterale per il form su dispositivi mobili */
+    }
+
+    button {
+        width: 100%; /* Bottoni a larghezza piena su dispositivi mobili */
+    }
+}
