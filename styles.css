@@ -7,37 +7,38 @@ body {
 }
 
 header {
-    background: url('business7.jpg') no-repeat center center/cover; /* Sfondo immagine */
+    background: url('business7.jpg') no-repeat center center/cover;
     color: white;
     text-align: center;
-    padding: 5em 1em; /* Maggiore padding per un migliore impatto visivo */
+    padding: 5em 1em;
     position: relative;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay per migliorare la leggibilità del testo */
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1; /* Assicurati che l'header abbia un z-index più alto */
 }
 
 .header-content {
     position: relative;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.5); /* Overlay semi-trasparente per migliorare la leggibilità */
-    padding: 2em 1em; /* Maggiore padding per una sezione di contenuto più ampia */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2em 1em;
     border-radius: 10px;
     display: inline-block;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .header-content h1 {
-    font-size: 3.5em; /* Dimensione uniforme del testo per il titolo */
+    font-size: 3.5em;
     margin: 0;
-    color: #ffeb3b; /* Colore giallo chiaro per il titolo */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Ombra più prominente per migliorare la leggibilità */
+    color: #ffeb3b;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
 }
 
 .header-content p {
-    font-size: 1.8em; /* Dimensione uniforme del testo per il sottotitolo */
+    font-size: 1.8em;
     margin: 0.5em 0 0;
-    color: #ffffff; /* Colore bianco per il sottotitolo */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombra per migliorare la leggibilità */
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 nav ul {
@@ -49,7 +50,7 @@ nav ul {
     background-color: #333;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 0; /* Assicurati che il menu abbia un z-index inferiore all'header */
 }
 
 nav ul li {
@@ -216,7 +217,19 @@ textarea {
 /* Media Queries per dispositivi mobili */
 @media (max-width: 768px) {
     header {
-        z-index: 1; /* Assicurati che il contenuto dell'header sia sopra il menu */
+        padding: 2em 1em; /* Riduci il padding dell'header per i dispositivi mobili */
+    }
+
+    .header-content {
+        padding: 1.5em 1em; /* Riduci il padding dell'header-content per i dispositivi mobili */
+    }
+
+    .header-content h1 {
+        font-size: 2.5em; /* Riduci la dimensione del titolo su dispositivi mobili */
+    }
+
+    .header-content p {
+        font-size: 1.2em; /* Riduci la dimensione del sottotitolo su dispositivi mobili */
     }
 
     nav ul {
@@ -224,8 +237,9 @@ textarea {
         width: 100%;
         flex-direction: column; /* Menu di navigazione in colonna */
         align-items: center;
-        background-color: #333; /* Mantieni il colore di sfondo */
+        background-color: #333;
         margin-top: 1em; /* Spazio sopra il menu */
+        z-index: 0; /* Assicurati che il menu abbia un z-index inferiore all'header */
     }
 
     nav ul li {
