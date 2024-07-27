@@ -1,44 +1,4 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    transition: background-color 0.5s ease-in-out;
-}
-
-header {
-    background: url('business7.jpg') no-repeat center center/cover; /* Sfondo immagine */
-    color: white;
-    text-align: center;
-    padding: 5em 1em; /* Maggiore padding per un migliore impatto visivo */
-    position: relative;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.5); /* Overlay per migliorare la leggibilità del testo */
-}
-
-.header-content {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.5); /* Overlay semi-trasparente per migliorare la leggibilità */
-    padding: 2em 1em; /* Maggiore padding per una sezione di contenuto più ampia */
-    border-radius: 10px;
-    display: inline-block;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.header-content h1 {
-    font-size: 3.5em; /* Dimensione uniforme del testo per il titolo */
-    margin: 0;
-    color: #ffeb3b; /* Colore giallo chiaro per il titolo */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Ombra più prominente per migliorare la leggibilità */
-}
-
-.header-content p {
-    font-size: 1.8em; /* Dimensione uniforme del testo per il sottotitolo */
-    margin: 0.5em 0 0;
-    color: #ffffff; /* Colore bianco per il sottotitolo */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombra per migliorare la leggibilità */
-}
+/* Altre regole CSS qui... */
 
 nav ul {
     list-style-type: none;
@@ -70,166 +30,18 @@ nav ul li a.active, nav ul li a:hover {
     border-radius: 5px;
 }
 
-section {
-    text-align: center;
-    padding: 2em 1em;
-    transition: opacity 0.5s ease-in-out;
-    opacity: 0;
-}
-
-section.visible {
-    opacity: 1;
-}
-
-.hero-image, .section-image, .service-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-top: 1em;
-}
-
-.services ul, .testimonials blockquote {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2em;
-}
-
-.services li {
-    background-color: #fff;
-    padding: 1em;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.services li:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    margin-top: 2em;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 0.5em 1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1em;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: left;
-}
-
-label {
-    font-weight: bold;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.5em;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-textarea {
-    height: 100px;
-}
-
-#home {
-    background: url('business1.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#chi-siamo {
-    background: url('business2.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#servizi {
-    background: url('business3.jpg') no-repeat center center/cover;
-    color: black;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
-#servizi h2, #servizi p {
-    color: black;
-}
-
-#servizi h2.servizi-titolo {
-    color: white;
-}
-
-#testimonianze {
-    background: url('business4.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#contatti {
-    background: url('business5.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-#prenota {
-    background: url('business6.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 10em 1em;
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
 /* Media Queries per dispositivi mobili */
 @media (max-width: 768px) {
-    .header-content h1 {
-        font-size: 2em; /* Riduci la dimensione del titolo su dispositivi mobili */
-    }
-
-    .header-content p {
-        font-size: 1.2em; /* Riduci la dimensione del sottotitolo su dispositivi mobili */
-    }
-
     nav ul {
         flex-direction: column; /* Disposizione verticale del menu di navigazione */
         align-items: center;
+        position: relative; /* Modifica la posizione a relativa */
+        margin-top: 1em; /* Spazio sopra il menu di navigazione */
+        width: 100%; /* Larghezza a tutta pagina */
     }
 
     nav ul li {
-        margin: 0.5em 0;
+        margin: 0.5em 0; /* Margine tra gli elementi del menu */
     }
 
     section {
