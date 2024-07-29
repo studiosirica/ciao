@@ -6,13 +6,14 @@
     <title>Chi Siamo - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Stili di base */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
+            transition: background-color 0.5s ease-in-out;
         }
+
         header {
             background: url('business7.jpg') no-repeat center center/cover;
             color: white;
@@ -23,11 +24,17 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
+
+        .menu-toggle {
+            display: none;
+        }
+
         nav {
             width: 100%;
             background-color: #333;
             position: relative;
         }
+
         nav ul {
             list-style-type: none;
             padding: 0;
@@ -35,9 +42,11 @@
             display: flex;
             justify-content: center;
         }
+
         nav ul li {
             margin: 0;
         }
+
         nav ul li a {
             color: white;
             text-decoration: none;
@@ -46,35 +55,12 @@
             transition: background-color 0.3s;
             font-size: 1.1em;
         }
+
         nav ul li a.active, nav ul li a:hover {
             background-color: #111;
             border-radius: 5px;
         }
-        section {
-            text-align: center;
-            padding: 2em 1em;
-            transition: opacity 0.5s ease-in-out;
-            opacity: 0;
-        }
-        section.visible {
-            opacity: 1;
-        }
-        .section-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 1em;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 2em;
-        }
-        .menu-toggle {
-            display: none;
-        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -84,20 +70,93 @@
                 padding: 1em;
                 cursor: pointer;
             }
+
             nav ul {
                 display: none;
                 flex-direction: column;
                 align-items: center;
                 background-color: #333;
             }
+
             nav ul.show {
                 display: flex;
             }
+
             nav ul li {
                 margin: 0.5em 0;
             }
+        }
+
+        section {
+            text-align: center;
+            padding: 2em 1em;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        section.visible {
+            opacity: 1;
+        }
+
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 1em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+
+        /* Media Queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            header {
+                padding: 2em 1em;
+            }
+
+            .header-content {
+                padding: 1.5em 1em;
+            }
+
+            .header-content h1 {
+                font-size: 2.5em;
+            }
+
+            .header-content p {
+                font-size: 1.2em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: #333;
+                margin-top: 1em;
+                display: none;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+
             section {
                 padding: 1em 0.5em;
+            }
+
+            button {
+                width: 100%;
             }
         }
     </style>
