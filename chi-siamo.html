@@ -5,23 +5,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Siamo - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Stili di base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: url('business7.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5em 1em;
+            position: relative;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        nav {
+            width: 100%;
+            background-color: #333;
+            position: relative;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1em;
+            display: block;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+        nav ul li a.active, nav ul li a:hover {
+            background-color: #111;
+            border-radius: 5px;
+        }
+        section {
+            text-align: center;
+            padding: 2em 1em;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+        section.visible {
+            opacity: 1;
+        }
+        .section-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 1em;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+        .menu-toggle {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 1em;
+                cursor: pointer;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background-color: #333;
+            }
+            nav ul.show {
+                display: flex;
+            }
+            nav ul li {
+                margin: 0.5em 0;
+            }
+            section {
+                padding: 1em 0.5em;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Studio Professionale Associato</h1>
         <p>Dott.ssa Grazia Sirica Dott. Enrico Sirica</p>
     </header>
+    <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
     <nav>
-        <ul>
+        <ul id="menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="chi-siamo.html">Chi Siamo</a></li>
+            <li><a href="chi-siamo.html" class="active">Chi Siamo</a></li>
             <li><a href="servizi.html">Servizi</a></li>
             <li><a href="testimonianze.html">Testimonianze</a></li>
             <li><a href="contatti.html">Contatti</a></li>
             <li><a href="prenota.html">Prenota Consulenza</a></li>
         </ul>
     </nav>
-    <section id="chi-siamo">
+    <section id="chi-siamo" class="visible">
         <h2>Chi Siamo</h2>
         <p>Lo Studio Professionale Associato della Dott.ssa Grazia Sirica e del Dott. Enrico Sirica si trova a Sarno ed è abilitato all'esercizio della professione. Con anni di esperienza, offriamo consulenze specializzate e personalizzate per privati e aziende.</p>
         <img src="business2.jpg" alt="Team" class="section-image">
@@ -29,6 +126,44 @@
     <footer>
         <p>&copy; 2024 Studio Professionale Associato. Tutti i diritti riservati.</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let sections = document.querySelectorAll('section');
+
+            function revealSections() {
+                let scrollPosition = window.scrollY + window.innerHeight;
+                sections.forEach(section => {
+                    if (scrollPosition > section.offsetTop + section.offsetHeight / 4) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', revealSections);
+            revealSections();
+
+            const menuButton = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            if (menuButton && nav) {
+                menuButton.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
+                        nav.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
