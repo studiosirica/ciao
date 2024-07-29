@@ -105,14 +105,26 @@
             margin-top: 1em;
         }
 
-        .testimonials blockquote {
-            background: #fff;
+        .services ul, .testimonials blockquote {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+        }
+
+        .services li {
+            background-color: #fff;
             padding: 1em;
-            border-left: 5px solid #4CAF50;
-            margin: 1em auto;
+            border: 1px solid #ddd;
             border-radius: 5px;
-            max-width: 800px;
             text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .services li:hover {
+            transform: scale(1.05);
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
@@ -121,6 +133,97 @@
             color: white;
             text-align: center;
             padding: 1em 0;
+            margin-top: 2em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        #home {
+            background: url('business1.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #chi-siamo {
+            background: url('business2.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #servizi {
+            background: url('business3.jpg') no-repeat center center/cover;
+            color: black;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #servizi h2, #servizi p {
+            color: black;
+        }
+
+        #servizi h2.servizi-titolo {
+            color: white;
+        }
+
+        #testimonianze {
+            background: url('business4.jpg') no-repeat center center/cover;
+            color: black;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #testimonianze blockquote {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #333;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        #testimonianze img {
             margin-top: 2em;
         }
 
@@ -166,9 +269,8 @@
                 padding: 1em 0.5em;
             }
 
-            .testimonials blockquote {
-                padding: 0.5em;
-                border-width: 3px;
+            .services ul {
+                grid-template-columns: 1fr;
             }
 
             form {
@@ -200,16 +302,16 @@
     <section id="testimonianze" class="testimonials">
         <h2>Testimonianze</h2>
         <blockquote>
-            "Grazie al loro aiuto, la nostra azienda ha ottimizzato le risorse e migliorato i risultati finanziari."
+            "Grazie al loro aiuto, la nostra azienda ha ottimizzato le risorse e migliorato i risultati finanziari." 
         </blockquote>
         <blockquote>
-            "Servizio professionale e sempre disponibile. Consiglio vivamente!"
+            "Servizio professionale e sempre disponibile. Consiglio vivamente!" 
         </blockquote>
         <blockquote>
-            "Competenza e attenzione ai dettagli. Un supporto indispensabile."
+            "Competenza e attenzione ai dettagli. Un supporto indispensabile." 
         </blockquote>
         <blockquote>
-            "Affidabili e preparati. Sempre pronti a rispondere a qualsiasi dubbio."
+            "Affidabili e preparati. Sempre pronti a rispondere a qualsiasi dubbio." 
         </blockquote>
         <img src="business2.jpg" alt="Testimonianze" class="section-image">
     </section>
