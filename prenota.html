@@ -6,7 +6,7 @@
     <title>Prenota Consulenza - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Stili base per la pagina */
+        /* CSS per la pagina Prenota Consulenza */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -15,22 +15,18 @@
         }
 
         header {
-            background: url('business7.jpg') no-repeat center center/cover;
+            background: url('business4.jpg') no-repeat center center/cover;
             color: white;
             text-align: center;
             padding: 5em 1em;
             position: relative;
             background-blend-mode: overlay;
             background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
         }
 
         .menu-toggle {
             display: none;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em;
-            cursor: pointer;
         }
 
         nav {
@@ -68,6 +64,11 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 1em;
+                cursor: pointer;
             }
 
             nav ul {
@@ -174,79 +175,19 @@
             height: 100px;
         }
 
-        #home {
-            background: url('business1.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 10em 1em;
-            background-blend-mode: overlay;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        #chi-siamo {
-            background: url('business2.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 10em 1em;
-            background-blend-mode: overlay;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-
-        #servizi {
-            background: url('business3.jpg') no-repeat center center/cover;
-            color: black;
-            padding: 10em 1em;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        #servizi h2, #servizi p {
-            color: black;
-        }
-
-        #servizi h2.servizi-titolo {
-            color: white;
-        }
-
-        #testimonianze {
-            background: url('business4.jpg') no-repeat center center/cover;
-            color: black;
-            padding: 10em 1em;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        #testimonianze blockquote {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-left: 5px solid #333;
-            padding: 1em;
-            margin: 1em 0;
-            font-style: italic;
-            color: #333;
-        }
-
-        #testimonianze img {
-            margin-top: 2em;
-        }
-
         #prenota {
             background: url('business4.jpg') no-repeat center center/cover;
-            color: black;
+            color: white;
             padding: 10em 1em;
             background-blend-mode: overlay;
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: rgba(0, 0, 0, 0.4);
         }
 
-        #prenota form {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 2em;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            margin: 0 auto;
+        #prenota h2, #prenota p {
+            color: white;
         }
 
-        #prenota img {
-            margin-top: 2em;
-        }
-
+        /* Media Queries per dispositivi mobili */
         @media (max-width: 768px) {
             header {
                 padding: 2em 1em;
@@ -257,15 +198,35 @@
             }
 
             nav ul {
-                display: none;
                 flex-direction: column;
                 align-items: center;
                 background-color: #333;
                 margin-top: 1em;
+                display: none;
             }
 
             nav ul.show {
                 display: flex;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+
+            section {
+                padding: 1em 0.5em;
+            }
+
+            .services ul {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 0 1em;
+            }
+
+            button {
+                width: 100%;
             }
         }
     </style>
@@ -339,12 +300,12 @@
 
             if (menuButton && nav) {
                 menuButton.addEventListener('click', function() {
-                    nav.querySelector('ul').classList.toggle('show');
+                    nav.classList.toggle('show');
                 });
 
                 document.addEventListener('click', function(event) {
                     if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
-                        nav.querySelector('ul').classList.remove('show');
+                        nav.classList.remove('show');
                     }
                 });
             }
