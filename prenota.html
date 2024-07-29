@@ -11,14 +11,15 @@
         <h1>Studio Professionale Associato</h1>
         <p>Dott.ssa Grazia Sirica Dott. Enrico Sirica</p>
     </header>
+    <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
     <nav>
-        <ul>
+        <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="chi-siamo.html">Chi Siamo</a></li>
             <li><a href="servizi.html">Servizi</a></li>
             <li><a href="testimonianze.html">Testimonianze</a></li>
             <li><a href="contatti.html">Contatti</a></li>
-            <li><a href="prenota.html">Prenota Consulenza</a></li>
+            <li><a href="prenota.html" class="active">Prenota Consulenza</a></li>
         </ul>
     </nav>
     <section id="prenota" class="booking">
@@ -46,6 +47,44 @@
     <footer>
         <p>&copy; 2024 Studio Professionale Associato. Tutti i diritti riservati.</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let sections = document.querySelectorAll('section');
+
+            function revealSections() {
+                let scrollPosition = window.scrollY + window.innerHeight;
+                sections.forEach(section => {
+                    if (scrollPosition > section.offsetTop + section.offsetHeight / 4) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', revealSections);
+            revealSections();
+
+            const menuButton = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            if (menuButton && nav) {
+                menuButton.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
+                        nav.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
