@@ -6,12 +6,12 @@
     <title>Prenota Consulenza - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        /* Stili base per la pagina */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            transition: background-color 0.5s ease-in-out;
         }
 
         header {
@@ -22,11 +22,15 @@
             position: relative;
             background-blend-mode: overlay;
             background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
         }
 
         .menu-toggle {
             display: none;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            cursor: pointer;
         }
 
         nav {
@@ -64,11 +68,6 @@
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
-                background-color: #333;
-                color: white;
-                text-align: center;
-                padding: 1em;
-                cursor: pointer;
             }
 
             nav ul {
@@ -76,6 +75,7 @@
                 flex-direction: column;
                 align-items: center;
                 background-color: #333;
+                margin-top: 1em;
             }
 
             nav ul.show {
@@ -98,11 +98,34 @@
             opacity: 1;
         }
 
-        .section-image {
+        .hero-image, .section-image, .service-image {
             max-width: 100%;
             height: auto;
             border-radius: 5px;
             margin-top: 1em;
+        }
+
+        .services ul, .testimonials blockquote {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+        }
+
+        .services li {
+            background-color: #fff;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .services li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         footer {
@@ -151,6 +174,59 @@
             height: 100px;
         }
 
+        #home {
+            background: url('business1.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #chi-siamo {
+            background: url('business2.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #servizi {
+            background: url('business3.jpg') no-repeat center center/cover;
+            color: black;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #servizi h2, #servizi p {
+            color: black;
+        }
+
+        #servizi h2.servizi-titolo {
+            color: white;
+        }
+
+        #testimonianze {
+            background: url('business4.jpg') no-repeat center center/cover;
+            color: black;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        #testimonianze blockquote {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-left: 5px solid #333;
+            padding: 1em;
+            margin: 1em 0;
+            font-style: italic;
+            color: #333;
+        }
+
+        #testimonianze img {
+            margin-top: 2em;
+        }
+
         #prenota {
             background: url('business4.jpg') no-repeat center center/cover;
             color: black;
@@ -159,26 +235,21 @@
             background-color: rgba(255, 255, 255, 0.8);
         }
 
-        #prenota h2 {
-            color: #333;
+        #prenota form {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2em;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            margin: 0 auto;
         }
 
-        /* Media Queries per dispositivi mobili */
+        #prenota img {
+            margin-top: 2em;
+        }
+
         @media (max-width: 768px) {
             header {
                 padding: 2em 1em;
-            }
-
-            .header-content {
-                padding: 1.5em 1em;
-            }
-
-            .header-content h1 {
-                font-size: 2.5em;
-            }
-
-            .header-content p {
-                font-size: 1.2em;
             }
 
             .menu-toggle {
@@ -186,31 +257,15 @@
             }
 
             nav ul {
+                display: none;
                 flex-direction: column;
                 align-items: center;
                 background-color: #333;
                 margin-top: 1em;
-                display: none;
             }
 
             nav ul.show {
                 display: flex;
-            }
-
-            nav ul li {
-                margin: 0.5em 0;
-            }
-
-            section {
-                padding: 1em 0.5em;
-            }
-
-            form {
-                padding: 0 1em;
-            }
-
-            button {
-                width: 100%;
             }
         }
     </style>
@@ -284,12 +339,12 @@
 
             if (menuButton && nav) {
                 menuButton.addEventListener('click', function() {
-                    nav.classList.toggle('show');
+                    nav.querySelector('ul').classList.toggle('show');
                 });
 
                 document.addEventListener('click', function(event) {
                     if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
-                        nav.classList.remove('show');
+                        nav.querySelector('ul').classList.remove('show');
                     }
                 });
             }
