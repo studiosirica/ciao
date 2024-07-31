@@ -129,6 +129,7 @@
         });
 
         const apiKey = '1c89f07f1b87491cba2f25daf15cdfea';
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
         const services = [
             {id: 'news-contabilita', query: 'contabilità Campania'},
             {id: 'news-buste-paga', query: 'buste paga Campania'},
@@ -139,8 +140,13 @@
 
         function fetchNews(service) {
             console.log(`Fetching news for ${service.query}`);
-            fetch(`https://newsapi.org/v2/everything?q=${service.query}&apiKey=${apiKey}`)
-                .then(response => response.json())
+            fetch(`${proxyUrl}https://newsapi.org/v2/everything?q=${service.query}&apiKey=${apiKey}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     console.log(data);
                     const newsList = document.getElementById(service.id).querySelector('ul');
