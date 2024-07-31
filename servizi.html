@@ -5,172 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servizi - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            transition: background-color 0.5s ease-in-out;
-        }
-
-        header {
-            background: url('business7.jpg') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 5em 1em;
-            position: relative;
-            background-blend-mode: overlay;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .menu-toggle {
-            display: none;
-        }
-
-        nav {
-            width: 100%;
-            background-color: #333;
-            position: relative;
-        }
-
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        nav ul li {
-            margin: 0;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            padding: 1em;
-            display: block;
-            transition: background-color 0.3s;
-            font-size: 1.1em;
-        }
-
-        nav ul li a.active, nav ul li a:hover {
-            background-color: #111;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                background-color: #333;
-                color: white;
-                text-align: center;
-                padding: 1em;
-                cursor: pointer;
-            }
-
-            nav ul {
-                display: none;
-                flex-direction: column;
-                align-items: center;
-                background-color: #333;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0.5em 0;
-            }
-        }
-
-        section {
-            text-align: center;
-            padding: 2em 1em;
-            transition: opacity 0.5s ease-in-out;
-            opacity: 0;
-        }
-
-        section.visible {
-            opacity: 1;
-        }
-
-        .hero-image, .section-image, .service-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-            margin-top: 1em;
-        }
-
-        .services ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2em;
-        }
-
-        .services li {
-            background-color: #fff;
-            padding: 1em;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-align: left;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .services li:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1em 0;
-            margin-top: 2em;
-        }
-
-        /* Media Queries per dispositivi mobili */
-        @media (max-width: 768px) {
-            header {
-                padding: 2em 1em;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-                background-color: #333;
-                margin-top: 1em;
-                display: none;
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0.5em 0;
-            }
-
-            section {
-                padding: 1em 0.5em;
-            }
-
-            .services ul {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -192,29 +26,49 @@
         <h2>Servizi</h2>
         <ul>
             <li>
-                <h3>Consulenza fiscale</h3>
-                <p>Analisi e ottimizzazione della posizione fiscale per privati e aziende.</p>
-                <img src="business3.jpg" alt="Consulenza Fiscale" class="service-image">
+                <h3>Contabilità</h3>
+                <p>Gestione completa della contabilità aziendale, inclusi registrazioni contabili, bilanci, e consulenza fiscale per ottimizzare la gestione economica dell'impresa.</p>
+                <img src="business4.jpg" alt="Contabilità" class="service-image">
+                <div class="news">
+                    <h4>Ultime Notizie</h4>
+                    <ul id="news-contabilita"></ul>
+                </div>
             </li>
             <li>
-                <h3>Contabilità aziendale</h3>
-                <p>Gestione completa della contabilità per piccole e medie imprese.</p>
-                <img src="business4.jpg" alt="Contabilità Aziendale" class="service-image">
+                <h3>Buste Paga</h3>
+                <p>Elaborazione accurata delle buste paga, gestione contributi e adempimenti fiscali legati ai dipendenti, garantendo il rispetto delle normative vigenti.</p>
+                <img src="business5.jpg" alt="Buste Paga" class="service-image">
+                <div class="news">
+                    <h4>Ultime Notizie</h4>
+                    <ul id="news-buste-paga"></ul>
+                </div>
             </li>
             <li>
-                <h3>Elaborazione buste paga</h3>
-                <p>Gestione e preparazione delle buste paga per garantire la corretta gestione delle paghe.</p>
-                <img src="business5.jpg" alt="Elaborazione Buste Paga" class="service-image">
+                <h3>CAF</h3>
+                <p>Assistenza completa per la compilazione e l'invio delle dichiarazioni dei redditi, ISEE, e altri adempimenti fiscali per privati e famiglie.</p>
+                <img src="business6.jpg" alt="CAF" class="service-image">
+                <div class="news">
+                    <h4>Ultime Notizie</h4>
+                    <ul id="news-caf"></ul>
+                </div>
             </li>
             <li>
-                <h3>Assistenza dichiarazioni dei redditi</h3>
-                <p>Supporto nella compilazione e invio delle dichiarazioni dei redditi.</p>
-                <img src="business6.jpg" alt="Dichiarazioni dei Redditi" class="service-image">
+                <h3>Patronato</h3>
+                <p>Servizi di patronato per la tutela sociale, tra cui pratiche di pensione, disoccupazione, e supporto per prestazioni assistenziali e previdenziali.</p>
+                <img src="business7.jpg" alt="Patronato" class="service-image">
+                <div class="news">
+                    <h4>Ultime Notizie</h4>
+                    <ul id="news-patronato"></ul>
+                </div>
             </li>
             <li>
-                <h3>Pianificazione finanziaria</h3>
-                <p>Consulenza strategica per la gestione finanziaria a lungo termine.</p>
-                <img src="business1.jpg" alt="Pianificazione Finanziaria" class="service-image">
+                <h3>Finanza Agevolata</h3>
+                <p>Consulenza e assistenza per l'accesso a finanziamenti agevolati, contributi a fondo perduto, e incentivi fiscali per supportare lo sviluppo e la crescita delle imprese.</p>
+                <img src="business8.jpg" alt="Finanza Agevolata" class="service-image">
+                <div class="news">
+                    <h4>Ultime Notizie</h4>
+                    <ul id="news-finanza-agevolata"></ul>
+                </div>
             </li>
         </ul>
     </section>
@@ -259,6 +113,31 @@
                 });
             }
         });
+
+        const apiKey = '1c89f07f1b87491cba2f25daf15cdfea';
+        const services = [
+            {id: 'news-contabilita', query: 'contabilità Campania'},
+            {id: 'news-buste-paga', query: 'buste paga Campania'},
+            {id: 'news-caf', query: 'CAF Campania'},
+            {id: 'news-patronato', query: 'patronato Campania'},
+            {id: 'news-finanza-agevolata', query: 'finanza agevolata Campania'}
+        ];
+
+        function fetchNews(service) {
+            fetch(`https://newsapi.org/v2/everything?q=${service.query}&apiKey=${apiKey}`)
+                .then(response => response.json())
+                .then(data => {
+                    const newsList = document.getElementById(service.id);
+                    data.articles.slice(0, 3).forEach(article => {
+                        const listItem = document.createElement('li');
+                        listItem.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
+                        newsList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching news:', error));
+        }
+
+        services.forEach(service => fetchNews(service));
     </script>
 </body>
 </html>
