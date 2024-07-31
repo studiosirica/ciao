@@ -5,26 +5,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prenota Consulenza - Studio Professionale Associato</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS per la pagina Prenota Consulenza */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: url('business4.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 5em 1em;
+            position: relative;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        nav {
+            width: 100%;
+            background-color: #333;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 1em;
+            display: block;
+            transition: background-color 0.3s;
+            font-size: 1.1em;
+        }
+
+        nav ul li a.active, nav ul li a:hover {
+            background-color: #111;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 1em;
+                cursor: pointer;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                background-color: #333;
+                margin-top: 1em;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+        }
+
+        section {
+            text-align: center;
+            padding: 2em 1em;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 0;
+        }
+
+        section.visible {
+            opacity: 1;
+        }
+
+        .hero-image, .section-image, .service-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 1em;
+        }
+
+        .services ul, .testimonials blockquote {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2em;
+        }
+
+        .services li {
+            background-color: #fff;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: left;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .services li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            margin-top: 2em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.5em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 100px;
+        }
+
+        #prenota {
+            background: url('business4.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 10em 1em;
+            background-blend-mode: overlay;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #prenota h2, #prenota p {
+            color: white;
+        }
+
+        /* Media Queries per dispositivi mobili */
+        @media (max-width: 768px) {
+            header {
+                padding: 2em 1em;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                background-color: #333;
+                margin-top: 1em;
+                display: none;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 0.5em 0;
+            }
+
+            section {
+                padding: 1em 0.5em;
+            }
+
+            .services ul {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                padding: 0 1em;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Studio Professionale Associato</h1>
-        <p>Dott.ssa Grazia Sirica & Dott. Enrico Sirica</p>
+        <p>Dott.ssa Grazia Sirica Dott. Enrico Sirica</p>
     </header>
+    <div class="menu-toggle" onclick="toggleMenu()">Menu</div>
     <nav>
-        <ul>
+        <ul id="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="chi-siamo.html">Chi Siamo</a></li>
             <li><a href="servizi.html">Servizi</a></li>
             <li><a href="testimonianze.html">Testimonianze</a></li>
             <li><a href="contatti.html">Contatti</a></li>
-            <li><a href="prenota.html">Prenota Consulenza</a></li>
+            <li><a href="prenota.html" class="active">Prenota Consulenza</a></li>
         </ul>
     </nav>
     <section id="prenota" class="booking">
         <h2>Prenota una Consulenza</h2>
         <p>Compila il modulo sottostante per prenotare una consulenza personalizzata.</p>
-        <form action="submit_form.html" method="post">
+        <form action="https://formspree.io/f/mzzpdlnz" method="post">
             <label for="name">Nome:</label>
             <input type="text" id="name" name="name" required>
             <label for="email">Email:</label>
@@ -46,6 +272,44 @@
     <footer>
         <p>&copy; 2024 Studio Professionale Associato. Tutti i diritti riservati.</p>
     </footer>
-    <script src="scripts.js"></script>
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            let sections = document.querySelectorAll('section');
+
+            function revealSections() {
+                let scrollPosition = window.scrollY + window.innerHeight;
+                sections.forEach(section => {
+                    if (scrollPosition > section.offsetTop + section.offsetHeight / 4) {
+                        section.classList.add('visible');
+                    } else {
+                        section.classList.remove('visible');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', revealSections);
+            revealSections();
+
+            const menuButton = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('nav');
+
+            if (menuButton && nav) {
+                menuButton.addEventListener('click', function() {
+                    nav.classList.toggle('show');
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (!nav.contains(event.target) && !menuButton.contains(event.target)) {
+                        nav.classList.remove('show');
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>
