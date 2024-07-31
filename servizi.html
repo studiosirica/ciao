@@ -129,7 +129,7 @@
         });
 
         const apiKey = '1c89f07f1b87491cba2f25daf15cdfea';
-        const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+        const proxyUrl = 'http://localhost:3000/news?query=';
         const services = [
             {id: 'news-contabilita', query: 'contabilità Campania'},
             {id: 'news-buste-paga', query: 'buste paga Campania'},
@@ -138,37 +138,32 @@
             {id: 'news-finanza-agevolata', query: 'finanza agevolata Campania'}
         ];
 
-        function fetchNews(service) {
-            console.log(`Fetching news for ${service.query}`);
-            fetch(`${proxyUrl}https://newsapi.org/v2/everything?q=${service.query}&apiKey=${apiKey}`)
+        services.forEach(service => {
+            fetch(`${proxyUrl}${encodeURIComponent(service.query)}`)
                 .then(response => {
                     if (!response.ok) {
-                        throw new Error(`HTTP error! status: ${response.status}`);
+                        throw new Error('HTTP error! status: ' + response.status);
                     }
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data);
-                    const newsList = document.getElementById(service.id).querySelector('ul');
+                    const newsDiv = document.getElementById(service.id);
+                    const newsList = newsDiv.querySelector('ul');
                     newsList.innerHTML = '';
-                    if (data.articles && data.articles.length > 0) {
-                        data.articles.slice(0, 3).forEach(article => {
-                            const listItem = document.createElement('li');
-                            listItem.innerHTML = `<a href="${article.url}" target="_blank">${article.title}</a>`;
-                            newsList.appendChild(listItem);
-                        });
-                    } else {
-                        newsList.innerHTML = '<li>Nessuna notizia trovata</li>';
-                    }
+                    data.articles.forEach(article => {
+                        const listItem = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.href = article.url;
+                        link.textContent = article.title;
+                        link.target = '_blank';
+                        listItem.appendChild(link);
+                        newsList.appendChild(listItem);
+                    });
                 })
                 .catch(error => {
                     console.error('Error fetching news:', error);
-                    const newsList = document.getElementById(service.id).querySelector('ul');
-                    newsList.innerHTML = '<li>Errore nel caricamento delle notizie</li>';
                 });
-        }
-
-        services.forEach(service => fetchNews(service));
+        });
     </script>
 </body>
 </html>
